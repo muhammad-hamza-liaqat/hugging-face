@@ -5,7 +5,11 @@ const app = express()
 
 const myRoutes = require("./routes/index")
 const corsMiddleware = require("./config/corsConfig")
+const requestLogger = require("./middleware/requestLogger")
+const notFoundHandler = require("./middleware/notFoundHandler")
+
 const PORT = process.env.PORT || 8000
+app.use(requestLogger);
 
 app.use(corsMiddleware);
 app.use(express.json());
