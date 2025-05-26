@@ -13,6 +13,11 @@ app.use(requestLogger);
 
 app.use(corsMiddleware);
 app.use(express.json());
+
+app.get("/", (req, res) => {
+    res.end("Welcome to Node.js Server!");
+});
+
 app.use("/api", myRoutes)
 
 app.listen(PORT, () => {
