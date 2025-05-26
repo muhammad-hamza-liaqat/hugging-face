@@ -4,10 +4,12 @@ const express = require("express")
 const app = express()
 
 const myRoutes = require("./routes/index")
+const corsMiddleware = require("./config/corsConfig")
 const PORT = process.env.PORT || 8000
 
+app.use(corsMiddleware);
 app.use(express.json());
-app.use("/api",myRoutes)
+app.use("/api", myRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port http://127.0.0.1:${PORT}/`)
